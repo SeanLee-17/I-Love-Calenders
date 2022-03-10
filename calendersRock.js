@@ -1,23 +1,23 @@
 var currentTimeEl = moment().format("MMM Do YYYY");
 $("#currentDay").text(currentTimeEl);
 
-var hourEl = moment().format("h");
+var hourEl = moment().format("H");
+
+var now = hourEl;
+//var past = currentTimeEl > pastTimeEl;
+//var future = currentTimeEl < pastTimeEl;
+
+//console.log(past);
+console.log(now);
 console.log(hourEl);
+//console.log(future);
 
-var rowsEl = document.getElementsByClassName("description");
-console.log(rowsEl);
-
-function hourCounter() {
-  if (hourEl >= 9) {
-    if (hourEl === 9) {
-      rowsEl[0].setAttribute("style", "background-color: red;");
-    } else if (hourEl === 10) {
-      rowsEl[0].setAttribute("style", "background-color: red;");
-    } else if (hourEl === 11) {
-      rowsEl[0].setAttribute("style", "background-color: red;");
-    } else if (hourEl === 12) {
-      rowsEl[0].setAttribute("style", "background-color: red;");
-    }
-  } else if (hourEl > 9) {
+function nowColor() {
+  if (now == hourEl) {
+    document.getElementsByClassName("color").style.backgroundColor = "green";
+  } else if (now < hourEl) {
+    document.getElementsByClassName("color").style.backgroundColor = "gold";
+  } else {
+    document.getElementsByClassName("color").style.backgroundColor = "gray";
   }
 }
